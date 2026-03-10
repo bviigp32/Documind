@@ -18,6 +18,7 @@
 
 ## 개발 로그 (Development Log)
 * **Phase 1 (기반 세팅):** 프로젝트 초기화 및 RAG 아키텍처 구축을 위한 핵심 도구(`LangChain`, `ChromaDB`, `FastAPI` 등) 환경 세팅 완료. (Day 1)
+* **Phase 2 (데이터 전처리):** `PyPDFLoader` 및 최신 버전의 `RecursiveCharacterTextSplitter`를 활용하여 방대한 PDF 문서를 AI가 소화할 수 있는 크기로 분할(Chunking)하는 파이프라인 구축. (Day 2)
 
 ## 기술 스택 (Tech Stack)
 | Category | Technology | Usage |
@@ -36,6 +37,3 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 ```
-
-
-
