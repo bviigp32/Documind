@@ -19,6 +19,7 @@
 ## 개발 로그 (Development Log)
 * **Phase 1 (기반 세팅):** 프로젝트 초기화 및 RAG 아키텍처 구축을 위한 핵심 도구(`LangChain`, `ChromaDB`, `FastAPI` 등) 환경 세팅 완료. (Day 1)
 * **Phase 2 (데이터 전처리):** `PyPDFLoader` 및 최신 버전의 `RecursiveCharacterTextSplitter`를 활용하여 방대한 PDF 문서를 AI가 소화할 수 있는 크기로 분할(Chunking)하는 파이프라인 구축. (Day 2)
+* **Phase 3 (임베딩 및 벡터 DB 구축):** 한국어 특화 오픈소스 모델(`jhgan/ko-sroberta-multitask`)을 활용하여 조각난 텍스트를 고차원 벡터로 임베딩하고, 이를 초고속 유사도 검색이 가능한 `ChromaDB`에 영구 적재(Persist). (Day 3)
 
 ## 기술 스택 (Tech Stack)
 | Category | Technology | Usage |
@@ -35,5 +36,8 @@ source .venv/bin/activate
 
 # 2. 필수 패키지 설치
 pip install -r requirements.txt
+
+# 3. 문서 임베딩 및 벡터 DB 구축
+python src/ingest.py
 
 ```
