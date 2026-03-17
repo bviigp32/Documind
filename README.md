@@ -23,6 +23,7 @@
 * **Phase 5~6 (API 서빙 및 컨테이너화):** RESTful API 엔드포인트(`/ask`) 구축 및 Docker 기반 배포 환경 세팅. (Day 5~6)
 * **Phase 7 (비동기 분산 처리):** 대용량 문서 처리 시 발생하는 병목 현상을 방지하기 위해 `Redis`와 `Celery`를 도입하여 백그라운드 워커 기반의 비동기 아키텍처 구축. (Day 7)
 * **Phase 8 (대화형 메모리 구축):** `PostgreSQL`을 연동하여 사용자의 세션별 대화 기록을 저장하고, LangChain의 `RunnableWithMessageHistory`를 통해 이전 대화의 문맥을 기억하는 지능형 대화형(Conversational) RAG 시스템 완성. (Day 8)
+* **Phase 9 (프론트엔드 구축):** `Streamlit`을 활용하여 사용자가 PDF 문서를 업로드하고 대화형으로 질의응답을 진행할 수 있는 직관적인 웹 UI 구현 완료. (Day 9)
 
 ## 기술 스택 (Tech Stack)
 | Category | Technology | Usage |
