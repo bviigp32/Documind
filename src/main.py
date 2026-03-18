@@ -11,7 +11,8 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_community.chat_message_histories import SQLChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from operator import itemgetter
-from src.worker import process_document_task
+from celery.result import AsyncResult
+from src.worker import process_document_task, celery_app
 
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
@@ -112,3 +113,13 @@ def ask_question(req: QuestionRequest):
         return AnswerResponse(session_id=req.session_id, question=req.question, answer=answer)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"답변 생성 중 오류 발생: {str(e)}")
+    
+@app.get("/task/{task_id}")
+def get_task_status(task_id: str):
+    """Celery 워커의 작업 상태를 조회합니다."""
+    task_result = AsyncResult(task_id, app=celery_app)
+    return {
+        "task_id": task_id,
+        "status": task_result.status, # PENDING, SUCCESS, FAILURE 등
+        "result": str(task_result.result) if task_result.ready() else None
+    }
